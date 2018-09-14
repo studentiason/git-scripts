@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# mgit
+
+#RUNS like git but for all .git folders recursicly
+oldIFS=$IFS
+
+IFS=$'\n'  # make newlines only speerator SPACES ok
+
+org_home=$(pwd)
+num=1
+
+arr=( $(find -L . -type d -writable -name .git -exec dirname {} \;))
+act=$@
+
+for i in "${arr[@]}"
+do
+	cd "$i"
+	echo -e "\n\t\033[1;32m$num) \033[1;33m$i\033[0m"
+    IFS=$oldIFS
+	git $act
+	cd "$org_home"
+	((num++))
+done
+
