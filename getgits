@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# getgits --> makes softlinks to all git repos
+
+
+IFS=$'\n'  # make newlines only speerator SPACES ok
+
+ 
+turd=0
+
+
+for x in $(find /home/$USER/Documents -name ".git" -type d);
+  do
+  dirPath=$(dirname "$x")
+  folderName=$(basename $(dirname "$x"))
+  ln -s $dirPath $folderName
+  done
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# gitA
+
+git add -A
+read msg
+git commit -am "$msg"
+git push

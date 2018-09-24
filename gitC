@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# gitC --just like 'A' but commit only
+
+git add -A
+read msg
+git commit -am "$msg"
+#git push
