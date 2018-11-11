@@ -2,8 +2,9 @@
 
 > collection of simple git scripts
 
-### mgit
+### mgit/Mgit
 ***m**aster **git*** :: top down for multiple git repos
+Mgit doesn't follow soft-links
 
 ### gitA
 `add -A` + `commit -am` + `push`
