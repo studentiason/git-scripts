@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# gitor
+
+#RUNS -- save ifs
+oldIFS=$IFS
+
+IFS=$'\n'  # make newlines only speerator SPACES ok
+
+org_home=$(pwd)
+
+arr=( $(find -P . -type d -writable -name .git -exec dirname {} \;))
+#act=$@
+echo "REPO|GROUP|USER|EMAIL|URL|PATH|">repos.csv
+
+
+for i in "${arr[@]}"
+do
+	cd "$i"
+	#echo -e "\n$PWD"
+    IFS=$oldIFS
+	#git $act
+	urlb=$(git remote get-url origin | sed 's/m:/m\//'| sed 's/g:/g\//')
+    tmp=${urlb#*.*/}
+    vv=${tmp%.*}
+	echo -e  "\n\n\n\t$vv"
+	repo=$(echo $vv | cut -d'/' -f 2)
+	group=$(echo $vv | cut -d'/' -f 1)
+	gurl=$(git remote get-url origin | sed 's/m:/m\//')
+	gname=$(git config user.name)
+	gemail=$(git config user.email)
+	gpath=$(echo $PWD)
+	cd "$org_home" # back to starting dir
+	echo "$repo|$group|$gname|$gemail|$gurl|$gpath|">>repos.csv
+done
+
+

@@ -10,7 +10,7 @@ IFS=$'\n'  # make newlines only speerator SPACES ok
 org_home=$(pwd)
 num=1
 
-arr=( $(find -L . -type d -writable -name .git -exec dirname {} \;))
+arr=( $(find . -type d -writable -name .git -exec dirname {} \;))
 act=$@
 
 for i in "${arr[@]}"
