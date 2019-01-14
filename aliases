@@ -1,0 +1,9 @@
+# >>>>>>>>>>>>>>  GIT  <<<<<<<<<<<< 
+alias gitAge='Mgit status | grep ago'
+
+alias gitage='mgit status | grep ago'
+
+alias ipush='git push -u origin master'
+
+alias SIgit='echo -e "[user]\n\tname = [NAME]\n\temail = [E-mail@snail.com]">>.git/config'
+
