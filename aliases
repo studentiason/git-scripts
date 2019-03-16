@@ -1,9 +1,17 @@
-# >>>>>>>>>>>>>>  GIT  <<<<<<<<<<<< 
-alias gitAge='Mgit status | grep ago'
+>>>>>>>>>>>>>>  GIT  <<<<<<<<<<<<
+alias gitp='git push' ago'
+alias mgits='mgit status'
+alias gits='git status'
+alias Mgits='Mgit status'
 
+alias gitAge='Mgit status | grep
 alias gitage='mgit status | grep ago'
 
+alias gitR='for r in $(cat ../r); do git clone $r;done'
 alias ipush='git push -u origin master'
+alias git-config='for x in $(tree -afi | grep config);do xed $x;done'
 
-alias SIgit='echo -e "[user]\n\tname = [NAME]\n\temail = [E-mail@snail.com]">>.git/config'
+alias mgitC='mgit add -A & mgit commit -am $@'
+alias mgit-poo='for x in $(ls -d */);do cd $x; pooFile;cd ..;done'
 
+alias MEgit='echo -e "[user]\n\tname = NNAAMMEE\n\temail = EEEMMMAAAIIILLL">>.git/config'
